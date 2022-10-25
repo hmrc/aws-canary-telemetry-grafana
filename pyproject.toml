@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "aws-canary-telemetry-grafana"
+version = "0.1.0"
+description = "Canary service to test availability of Grafana"
+authors = ["Team Telemetry <telemetry@digital.hmrc.gov.uk>"]
+license = "Apache 2.0"
+readme = "README.md"
+packages = [{include = "aws_canary_telemetry_grafana"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+cruft = "^2.11.1"
+cookiecutter = "^2.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
