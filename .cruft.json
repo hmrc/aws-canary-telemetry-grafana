@@ -1,0 +1,18 @@
+{
+  "template": "https://github.com/hmrc/telemetry-canary-resources",
+  "commit": "0ca78ab507d5788203e4cd2022dd0da140dc43d3",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "bandit_skip_tests": "",
+      "custom_makefile_name": "",
+      "canary_artifacts_bucket": "telemetry-internal-base-canary-artifacts",
+      "canary_entrypoint": "handler.canary_handler",
+      "canary_repo_name": "aws-canary-telemetry-grafana",
+      "canary_repo_name_formatted": "aws-canary-telemetry-grafana",
+      "unit_test_style": "pytest",
+      "_template": "https://github.com/hmrc/telemetry-canary-resources"
+    }
+  },
+  "directory": null
+}
