@@ -13,6 +13,7 @@ python = "^3.10"
 [tool.poetry.group.dev.dependencies]
 cruft = "^2.11.1"
 cookiecutter = "^2.1.1"
+toml = "^0.10.2"
 
 [build-system]
 requires = ["poetry-core"]
