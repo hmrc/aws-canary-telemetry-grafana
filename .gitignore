@@ -18,9 +18,9 @@
 /build
 /out
 __pycache__
+canary-packages
 coverage.xml
 dist
-canary-packages
 lib_managed
 log_handler.zip
 log_handler.zip.base64sha256
