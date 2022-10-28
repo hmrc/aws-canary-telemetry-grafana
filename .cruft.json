@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/hmrc/telemetry-canary-resources",
-  "commit": "69554ab945e92f6de746d30fd84ebab6b0efb59b",
+  "commit": "99383a9b76ac7c0759e7d0722205fece16a34ec4",
   "checkout": null,
   "context": {
     "cookiecutter": {
