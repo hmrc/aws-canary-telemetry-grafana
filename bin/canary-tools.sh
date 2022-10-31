@@ -14,7 +14,7 @@ CANARY_ZIP_NAME="canary.zip"
 PATH_BUILD="${BASE_LOCATION}/build"
 PROJECT_FULL_NAME="aws-canary-telemetry-grafana"
 
-S3_TELEMETRY_CANARY_ROOT="telemetry-internal-base-canary-artifacts"
+S3_TELEMETRY_CANARY_ROOT="telemetry-internal-base-lambda-artifacts"
 S3_CANARY_SUB_FOLDER="build-${PROJECT_FULL_NAME}"
 S3_ADDRESS="s3://${S3_TELEMETRY_CANARY_ROOT}/${S3_CANARY_SUB_FOLDER}"
 
