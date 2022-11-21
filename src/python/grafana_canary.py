@@ -22,7 +22,7 @@ TIMEOUT_SECONDS = 10
 async def main():
     url = GRAFANA_URL
     browser = syn_webdriver.Chrome()
-    browser.set_viewport_size(640, 480)
+    browser.set_viewport_size(1024, 768)
 
     # Set synthetics configuration
     synthetics_configuration.set_config(
