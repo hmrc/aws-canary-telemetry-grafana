@@ -22,11 +22,12 @@ TIMEOUT_SECONDS = 10
 async def main():
     url = GRAFANA_URL
     browser = syn_webdriver.Chrome()
+    browser.set_viewport_size(640, 480)
 
     # Set synthetics configuration
     synthetics_configuration.set_config(
         {
-            "screenshot_on_step_start": True,
+            "screenshot_on_step_start": False,
             "screenshot_on_step_success": True,
             "screenshot_on_step_failure": True,
         }
