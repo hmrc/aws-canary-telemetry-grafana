@@ -37,6 +37,12 @@ async def main():
         browser.implicitly_wait(TIMEOUT_SECONDS)
         browser.get(url)
 
+    def navigate_to_page_two():
+        browser.implicitly_wait(TIMEOUT_SECONDS)
+        browser.get(
+            "https://grafana.internal-lab02.telemetry.tax.service.gov.uk/d/Telemetry_test_page/"
+        )
+
     await syn_webdriver.execute_step("navigateToUrl", navigate_to_page)
 
     # Execute customer steps
@@ -63,7 +69,12 @@ async def main():
         ).click()
 
     await syn_webdriver.execute_step("redirection", customer_actions_3)
+    await syn_webdriver.execute_step("navigateToUrl", navigate_to_page_two)
 
+    def customer_actions_4():
+        browser.find_element_by_class_name("markdown-html")
+
+    await syn_webdriver.execute_step("click", customer_actions_4)
     logger.info("Canary successfully executed")
 
 
