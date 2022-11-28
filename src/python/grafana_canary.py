@@ -15,12 +15,14 @@ response = client.get_parameter(Name=SSM_PARAM, WithDecryption=True)
 GRAFANA_USERNAME = "admin"
 GRAFANA_PASSWORD = response.get("Parameter").get("Value")
 GRAFANA_URL = os.getenv("GRAFANA_URL")
+GRAFANA_DASHBOARD_URL = os.getenv("GRAFANA_DASHBOARD_URL")
 
 TIMEOUT_SECONDS = 10
 
 
 async def main():
     url = GRAFANA_URL
+    url_to_dashboard = GRAFANA_DASHBOARD_URL
     browser = syn_webdriver.Chrome()
     browser.set_viewport_size(1024, 768)
 
@@ -39,9 +41,7 @@ async def main():
 
     def navigate_to_page_two():
         browser.implicitly_wait(TIMEOUT_SECONDS)
-        browser.get(
-            "https://grafana.internal-lab02.telemetry.tax.service.gov.uk/d/Telemetry_test_page/"
-        )
+        browser.get(url_to_dashboard)
 
     await syn_webdriver.execute_step("navigateToUrl", navigate_to_page)
 
