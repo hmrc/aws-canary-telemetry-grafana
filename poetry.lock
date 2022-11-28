@@ -1055,10 +1055,26 @@ type = "legacy"
 url = "https://artefacts.tax.service.gov.uk/artifactory/api/pypi/pips/simple"
 reference = "artifactory"
 
+[[package]]
+name = "wheel"
+version = "0.38.4"
+description = "A built-package format for Python"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+test = ["pytest (>=3.0.0)"]
+
+[package.source]
+type = "legacy"
+url = "https://artefacts.tax.service.gov.uk/artifactory/api/pypi/pips/simple"
+reference = "artifactory"
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "a50f6b5ae8ac025a313ce5234550451bcfa51a0a87cb6edc674e62ecd183744c"
+content-hash = "cfc3487c2d096e4d3f31a6b26438f1a64d3035cbec8bc193060462aa8590cd46"
 
 [metadata.files]
 arrow = [
@@ -1486,4 +1502,8 @@ version-incrementor = [
 virtualenv = [
     {file = "virtualenv-20.16.6-py3-none-any.whl", hash = "sha256:186ca84254abcbde98180fd17092f9628c5fe742273c02724972a1d8a2035108"},
     {file = "virtualenv-20.16.6.tar.gz", hash = "sha256:530b850b523c6449406dfba859d6345e48ef19b8439606c5d74d7d3c9e14d76e"},
+]
+wheel = [
+    {file = "wheel-0.38.4-py3-none-any.whl", hash = "sha256:b60533f3f5d530e971d6737ca6d58681ee434818fab630c83a734bb10c083ce8"},
+    {file = "wheel-0.38.4.tar.gz", hash = "sha256:965f5259b566725405b05e7cf774052044b1ed30119b5d586b2703aafe8719ac"},
 ]
