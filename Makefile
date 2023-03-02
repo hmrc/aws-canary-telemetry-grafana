@@ -7,7 +7,8 @@ PYTHON_OK := $(shell type -P python)
 PYTHON_REQUIRED := $(shell cat .python-version)
 PYTHON_VERSION ?= $(shell python -V | cut -d' ' -f2)
 
-BUCKET_NAME := telemetry-internal-base-canary-artifacts
+### WARNING! This is a generated file and should ONLY be edited in https://github.com/hmrc/telemetry-canary-resources
+
 CANARY_NAME := aws-canary-telemetry-grafana
 TELEMETRY_INTERNAL_BASE_ACCOUNT_ID := 634456480543
 
