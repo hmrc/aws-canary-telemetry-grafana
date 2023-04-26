@@ -26,6 +26,12 @@ async def main():
     browser = syn_webdriver.Chrome()
     browser.set_viewport_size(1024, 768)
 
+    selector_login_name = "//input[@placeholder='email or username']"
+    selector_login_password = "//*[@id='current-password']"
+    selector_login_button = (
+        "/html/body/div/div[1]/main/div/div[3]/div/div[2]/div/div/form/button"
+    )
+
     # Set synthetics configuration
     synthetics_configuration.set_config(
         {
@@ -48,15 +54,13 @@ async def main():
     # Execute customer steps
     def customer_actions_1():
         logger.debug("Enter username")
-        browser.find_element_by_xpath(
-            '//*[@id="reactRoot"]/div/main/div[3]/div/div[2]/div/div/form/div[1]/div[2]/div/div/input'
-        ).send_keys(GRAFANA_USERNAME)
+        browser.find_element_by_xpath(selector_login_name).send_keys(GRAFANA_USERNAME)
 
     await syn_webdriver.execute_step("input", customer_actions_1)
 
     def customer_actions_2():
         logger.debug("Enter password")
-        browser.find_element_by_xpath("//*[@id='current-password']").send_keys(
+        browser.find_element_by_xpath(selector_login_password).send_keys(
             GRAFANA_PASSWORD
         )
 
@@ -64,9 +68,7 @@ async def main():
 
     def customer_actions_3():
         logger.debug("Click to login")
-        browser.find_element_by_xpath(
-            "/html/body/div[1]/div/main/div[3]/div/div[2]/div/div/form/button"
-        ).click()
+        browser.find_element_by_xpath(selector_login_button).click()
 
     await syn_webdriver.execute_step("redirection", customer_actions_3)
     await syn_webdriver.execute_step("navigateToUrl", navigate_to_page_two)
