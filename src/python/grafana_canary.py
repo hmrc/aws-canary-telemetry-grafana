@@ -27,7 +27,7 @@ async def main():
     browser.set_viewport_size(1024, 768)
 
     selector_login_name = "//input[@placeholder='email or username']"
-    selector_login_password = "//*[@id='current-password']"
+    selector_login_password = "//*[@id='current-password']"  # nosec B105
     selector_login_button = (
         "/html/body/div/div[1]/main/div/div[3]/div/div[2]/div/div/form/button"
     )
