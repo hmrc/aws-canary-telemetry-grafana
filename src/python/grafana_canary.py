@@ -1,4 +1,5 @@
 import os
+from ast import literal_eval
 
 import boto3
 from aws_synthetics.common import synthetics_configuration
@@ -16,11 +17,15 @@ GRAFANA_USERNAME = "admin"
 GRAFANA_PASSWORD = response.get("Parameter").get("Value")
 GRAFANA_URL = os.getenv("GRAFANA_URL")
 GRAFANA_DASHBOARD_URL = os.getenv("GRAFANA_DASHBOARD_URL")
-SCREENSHOT_ON_STEP_START = bool(eval(os.getenv("SCREENSHOT_ON_STEP_START", "False")))
-SCREENSHOT_ON_STEP_SUCCESS = bool(
-    eval(os.getenv("SCREENSHOT_ON_STEP_SUCCESS", "False"))
+SCREENSHOT_ON_STEP_START = bool(
+    literal_eval(os.getenv("SCREENSHOT_ON_STEP_START", "False"))
 )
-SCREENSHOT_ON_STEP_FAILURE = bool(eval(os.getenv("SCREENSHOT_ON_STEP_FAILURE", "True")))
+SCREENSHOT_ON_STEP_SUCCESS = bool(
+    literal_eval(os.getenv("SCREENSHOT_ON_STEP_SUCCESS", "False"))
+)
+SCREENSHOT_ON_STEP_FAILURE = bool(
+    literal_eval(os.getenv("SCREENSHOT_ON_STEP_FAILURE", "True"))
+)
 
 TIMEOUT_SECONDS = 10
 
