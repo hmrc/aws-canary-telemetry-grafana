@@ -16,6 +16,9 @@ GRAFANA_USERNAME = "admin"
 GRAFANA_PASSWORD = response.get("Parameter").get("Value")
 GRAFANA_URL = os.getenv("GRAFANA_URL")
 GRAFANA_DASHBOARD_URL = os.getenv("GRAFANA_DASHBOARD_URL")
+SCREENSHOT_ON_STEP_START = os.getenv("SCREENSHOT_ON_STEP_START", False)
+SCREENSHOT_ON_STEP_SUCCESS = os.getenv("SCREENSHOT_ON_STEP_SUCCESS", False)
+SCREENSHOT_ON_STEP_FAILURE = os.getenv("SCREENSHOT_ON_STEP_FAILURE", True)
 
 TIMEOUT_SECONDS = 10
 
@@ -35,9 +38,9 @@ async def main():
     # Set synthetics configuration
     synthetics_configuration.set_config(
         {
-            "screenshot_on_step_start": False,
-            "screenshot_on_step_success": True,
-            "screenshot_on_step_failure": True,
+            "screenshot_on_step_start": SCREENSHOT_ON_STEP_START,
+            "screenshot_on_step_success": SCREENSHOT_ON_STEP_SUCCESS,
+            "screenshot_on_step_failure": SCREENSHOT_ON_STEP_FAILURE,
         }
     )
 
