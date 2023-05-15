@@ -38,9 +38,9 @@ async def main():
     # Set synthetics configuration
     synthetics_configuration.set_config(
         {
-            "screenshot_on_step_start": SCREENSHOT_ON_STEP_START,
-            "screenshot_on_step_success": SCREENSHOT_ON_STEP_SUCCESS,
-            "screenshot_on_step_failure": SCREENSHOT_ON_STEP_FAILURE,
+            "screenshot_on_step_start": bool(SCREENSHOT_ON_STEP_START),
+            "screenshot_on_step_success": bool(SCREENSHOT_ON_STEP_SUCCESS),
+            "screenshot_on_step_failure": bool(SCREENSHOT_ON_STEP_FAILURE),
         }
     )
 
