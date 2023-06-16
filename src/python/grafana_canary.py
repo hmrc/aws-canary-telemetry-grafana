@@ -38,9 +38,10 @@ async def main():
 
     selector_login_name = "//input[@placeholder='email or username']"
     selector_login_password = "//*[@id='current-password']"  # nosec B105
-    selector_login_button = (
-        "/html/body/div/div[1]/main/div/div[3]/div/div[2]/div/div/form/button"
-    )
+    selector_login_button = browser.find_element_by_xpath('//div[@aria-label="Login button"]/div[@class="css-1mhnkuh"')
+    # selector_login_button = (
+    #     "/html/body/div/div[1]/main/div/div[3]/div/div[2]/div/div/form/button"
+    # )
 
     # Set synthetics configuration
     synthetics_configuration.set_config(
