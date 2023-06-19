@@ -36,11 +36,9 @@ async def main():
     browser = syn_webdriver.Chrome()
     browser.set_viewport_size(1024, 768)
 
-    selector_login_name = "//input[@placeholder='email or username']"
+    selector_login_button = "//*[@aria-label='Login button']"
+    selector_login_name = "//*[@placeholder='email or username']"
     selector_login_password = "//*[@id='current-password']"  # nosec B105
-    selector_login_button = (
-        "/html/body/div/div[1]/main/div/div[3]/div/div[2]/div/div/form/button"
-    )
 
     # Set synthetics configuration
     synthetics_configuration.set_config(
@@ -84,7 +82,7 @@ async def main():
     await syn_webdriver.execute_step("navigateToUrl", navigate_to_page_two)
 
     def customer_actions_4():
-        browser.find_element_by_class_name("markdown-html")
+        browser.find_element_by_class_name("main-view")
 
     await syn_webdriver.execute_step("click", customer_actions_4)
     logger.info("Canary successfully executed")
