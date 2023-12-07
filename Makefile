@@ -76,7 +76,7 @@ publish: ## Build and push canary zip to S3 (requires MDTP_ENVIRONMENT to be set
 .PHONY: publish
 
 setup: check_poetry ## Setup virtualenv & dependencies using poetry and set-up the git hook scripts
-	@export POETRY_VIRTUALENVS_IN_PROJECT=$(POETRY_VIRTUALENVS_IN_PROJECT) && poetry run pip install --upgrade pip
+	@export POETRY_VIRTUALENVS_IN_PROJECT=$(POETRY_VIRTUALENVS_IN_PROJECT) && poetry run pip install --index-url https://artefacts.tax.service.gov.uk/artifactory/api/pypi/pips/simple --upgrade pip
 	@poetry config experimental.new-installer false
 	@poetry config --list
 	@poetry install --no-root
