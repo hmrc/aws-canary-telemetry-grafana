@@ -25,6 +25,7 @@ apt-get -y upgrade
 # Install test requirements
 python -m venv "${VENV_NAME}"
 source ./"${VENV_NAME}"/bin/activate
+export PIP_INDEX_URL=https://artefacts.tax.service.gov.uk/artifactory/api/pypi/pips/simple
 pip install --upgrade pip
 pip install --requirement "${REQUIREMENTS_FILE}"
 
