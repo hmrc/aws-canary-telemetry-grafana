@@ -36,9 +36,11 @@ async def main():
     browser = syn_webdriver.Chrome()
     browser.set_viewport_size(1024, 768)
 
-    selector_login_button = "//*[@aria-label='Login button']"
+    selector_login_button = "//button[normalize-space()='Log in']"
     selector_login_name = "//*[@placeholder='email or username']"
-    selector_login_password = "//*[@id='current-password']"  # nosec B105
+    selector_login_password = (
+        "//*[@id='current-password' or @name='password']"  # nosec B105
+    )
 
     # Set synthetics configuration
     synthetics_configuration.set_config(
