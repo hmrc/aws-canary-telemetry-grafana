@@ -5,7 +5,7 @@ import boto3
 from aws_synthetics.common import synthetics_configuration
 from aws_synthetics.common import synthetics_logger as logger
 from aws_synthetics.selenium import synthetics_webdriver as syn_webdriver
-
+from selenium.webdriver.common.by import By
 
 SSM_PARAM = "/secrets/grafana/admin_password"
 
@@ -64,13 +64,13 @@ async def main():
     # Execute customer steps
     def customer_actions_1():
         logger.debug("Enter username")
-        browser.find_element_by_xpath(selector_login_name).send_keys(GRAFANA_USERNAME)
+        browser.find_element(By.XPATH, selector_login_name).send_keys(GRAFANA_USERNAME)
 
     await syn_webdriver.execute_step("input", customer_actions_1)
 
     def customer_actions_2():
         logger.debug("Enter password")
-        browser.find_element_by_xpath(selector_login_password).send_keys(
+        browser.find_element(By.XPATH, selector_login_password).send_keys(
             GRAFANA_PASSWORD
         )
 
@@ -78,13 +78,13 @@ async def main():
 
     def customer_actions_3():
         logger.debug("Click to login")
-        browser.find_element_by_xpath(selector_login_button).click()
+        browser.find_element(By.XPATH, selector_login_button).click()
 
     await syn_webdriver.execute_step("redirection", customer_actions_3)
     await syn_webdriver.execute_step("navigateToUrl", navigate_to_page_two)
 
     def customer_actions_4():
-        browser.find_element_by_class_name("main-view")
+        browser.find_element(By.CLASS_NAME, "main-view")
 
     await syn_webdriver.execute_step("click", customer_actions_4)
     logger.info("Canary successfully executed")
