@@ -7,14 +7,15 @@ from aws_synthetics.common import synthetics_logger as logger
 from aws_synthetics.selenium import synthetics_webdriver as syn_webdriver
 from selenium.webdriver.common.by import By
 
-SSM_PARAM = "/secrets/grafana/admin_password"
+USER_SSM_PARAM = os.getenv("USER_SSM_PARAM")
+PASSWORD_SSM_PARAM = os.getenv("PASSWORD_SSM_PARAM")
 
 client = boto3.client("ssm")
-response = client.get_parameter(Name=SSM_PARAM, WithDecryption=True)
+user_response = client.get_parameter(Name=USER_SSM_PARAM, WithDecryption=True)
+password_response = client.get_parameter(Name=PASSWORD_SSM_PARAM, WithDecryption=True)
 
-
-GRAFANA_USERNAME = "admin"
-GRAFANA_PASSWORD = response.get("Parameter").get("Value")
+GRAFANA_USERNAME = user_response.get("Parameter").get("Value")
+GRAFANA_PASSWORD = password_response.get("Parameter").get("Value")
 GRAFANA_URL = os.getenv("GRAFANA_URL")
 GRAFANA_DASHBOARD_URL = os.getenv("GRAFANA_DASHBOARD_URL")
 SCREENSHOT_ON_STEP_START = bool(
