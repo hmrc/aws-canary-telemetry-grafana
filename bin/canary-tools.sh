@@ -41,7 +41,7 @@ open_shell() {
                --workdir /data \
                --env REQUIREMENTS_FILE="requirements-tests.txt" \
                --env VENV_NAME="venv" \
-               python:$(cat "${BASE_LOCATION}/.python-version")-slim-buster /data/bin/entrypoint.sh /bin/bash
+               python:$(cat "${BASE_LOCATION}/.python-version")-slim-bookworm /data/bin/entrypoint.sh /bin/bash
 
     print_completed
 }
@@ -57,7 +57,7 @@ unittest() {
              --workdir /data \
              --env REQUIREMENTS_FILE="requirements-tests.txt" \
              --env VENV_NAME="venv" \
-             python:$(cat "${BASE_LOCATION}/.python-version")-slim-buster /data/bin/entrypoint.sh /data/bin/run-tests.sh
+             python:$(cat "${BASE_LOCATION}/.python-version")-slim-bookworm /data/bin/entrypoint.sh /data/bin/run-tests.sh
 
   print_completed
 }
@@ -74,7 +74,7 @@ package() {
              --env CANARY_ZIP_NAME=${CANARY_ZIP_NAME} \
              --env REQUIREMENTS_FILE="requirements.txt" \
              --env VENV_NAME="venv_package" \
-             python:$(cat "${BASE_LOCATION}/.python-version")-slim-buster /data/bin/entrypoint.sh /data/bin/package-canary.sh
+             python:$(cat "${BASE_LOCATION}/.python-version")-slim-bookworm /data/bin/entrypoint.sh /data/bin/package-canary.sh
 
   print_completed
 }
