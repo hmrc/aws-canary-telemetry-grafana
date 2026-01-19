@@ -6,7 +6,7 @@ set -eu
 
 apt install -y zip
 mkdir -p build
-cd "./${VENV_NAME}/lib/python3.14/site-packages"
+cd "./${VENV_NAME}/lib/python3.10/site-packages"
 zip -r "../../../../build/${CANARY_ZIP_NAME}" .
 cd -
 cd "./src"
