@@ -13,6 +13,7 @@ BASEDIR=/data
 cd ${BASEDIR}
 
 # Force Debian to use HTTPS
+cp /etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources.bak
 sed --in-place 's|http://|https://|g' /etc/apt/sources.list.d/debian.sources
 
 # Update the package listing, so we know what package exist:
